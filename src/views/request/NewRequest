@@ -1,0 +1,121 @@
+import React from "react";
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+// core components
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import CustomInput from "components/CustomInput/CustomInput.js";
+import Button from "components/CustomButtons/Button.js";
+import Card from "components/Card/Card.js";
+import CardHeader from "components/Card/CardHeader.js";
+import CardAvatar from "components/Card/CardAvatar.js";
+import CardBody from "components/Card/CardBody.js";
+import CardFooter from "components/Card/CardFooter.js";
+
+
+const styles = {
+  cardCategoryWhite: {
+    color: "rgba(255,255,255,.62)",
+    margin: "0",
+    fontSize: "14px",
+    marginTop: "0",
+    marginBottom: "0"
+  },
+  cardTitleWhite: {
+    color: "#FFFFFF",
+    marginTop: "0px",
+    minHeight: "auto",
+    fontWeight: "300",
+    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+    marginBottom: "3px",
+    textDecoration: "none"
+  }
+};
+
+const useStyles = makeStyles(styles);
+
+export default function NewRequest() {
+  const classes = useStyles();
+
+  return (
+    <div>
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={15}>
+          <Card>
+            <CardHeader color="primary">
+              <h4 className={classes.cardTitleWhite}>What Can We Do For You?</h4>
+              <p className={classes.cardCategoryWhite}>Please describe what happened.</p>
+            </CardHeader>
+            <CardBody>
+              <GridContainer>
+                <GridItem>
+                  <p>Please click the buttons most closely describe the situation in your apartment(you can choose multiple buttons)
+                  </p>
+                </GridItem>
+              </GridContainer>
+              <GridContainer>
+                <div className={classes.root}>
+                  <ButtonGroup
+                      orientation="vertical"
+                      //color="primary"
+                      aria-label="vertical outlined primary button group"
+                  >
+                    <Button>The air condition doesn't work.</Button>
+                    <Button>The close stool doesn't work.</Button>
+                    <Button>The oven doesn't work.</Button>
+                  </ButtonGroup>
+
+                  <ButtonGroup
+                      orientation="vertical"
+                      //color="primary"
+                      aria-label="vertical contained primary button group"
+                  >
+                    <Button>Leaking pipes</Button>
+                    <Button>The faucet doesn't work.</Button>
+                    <Button>Power failure or bulbs wear out</Button>
+                  </ButtonGroup>
+
+                  <ButtonGroup
+                      orientation="vertical"
+                      //color="primary"
+                      aria-label="vertical contained primary button group"
+                  >
+                    <Button>Clogged drain</Button>
+                    <Button>Windows problems</Button>
+                    <Button>Other Problems</Button>
+                  </ButtonGroup>
+                </div>
+              </GridContainer>
+
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={12}>
+                  {/*<InputLabel style={{ color: "#AAAAAA" }}>About me</InputLabel>*/}
+                  <CustomInput
+                    labelText='If you chose "Other problems", please describe in details'
+                    //id="about-me"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      multiline: true,
+                      rows: 1
+                    }}
+                  />
+                </GridItem>
+              </GridContainer>
+              <p>Set urgency (An extra 15% fee for the urgent request.
+              The default situation is not urgent if you don't click the button, and we will correspond in 24 hours.)</p>
+            <Button color="default">set to urgent</Button>
+            </CardBody>
+            <CardFooter>
+
+              <Button color="primary">submit request</Button>
+            </CardFooter>
+          </Card>
+        </GridItem>
+      </GridContainer>
+    </div>
+  );
+}
