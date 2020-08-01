@@ -81,6 +81,22 @@ export const routesTenant = [
     layout: "/admin"
   },
   {
+    path: "/Unresolved request",
+    name: "Unresolved request",
+    rtlName: "لوحة القيادة",
+    icon: BuildIcon,
+    component: TableList,
+    layout: "/admin"
+  },
+  {
+    path: "/MakeRequest",
+    name: "Make a New Request",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: BuildIcon,
+    component: NewRequest,
+    layout: "/admin"
+  },
+  {
     path: "/dashboard",
     name: "Dashboard",
     rtlName: "لوحة القيادة",
