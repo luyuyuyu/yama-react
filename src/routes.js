@@ -46,6 +46,9 @@ import TenantPayHistory from "views/Payments/TenantPayHistory.js";
 import PackageManager from "./views/Package/PackageManager";
 import PackageResident from "./views/Package/PackageResident";
 
+import TableList from "views/request/UnresolvedRequest.js";
+import NewRequest from "/views/request/NewRequest.js";
+
 export const routesTenant = [
 
   {
@@ -168,7 +171,22 @@ export const routesTenant = [
   }
 ];
 
-
+{
+    path: "/Unresolved request",
+    name: "Unresolved request",
+    rtlName: "لوحة القيادة",
+    icon: BuildIcon,
+    component: TableList,
+    layout: "/admin"
+  },
+  {
+    path: "/MakeRequest",
+    name: "Make a New Request",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: BuildIcon,
+    component: NewRequest,
+    layout: "/admin"
+  },
 export const routesManager = [
   {
     path: "/dashboard",
